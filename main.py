@@ -35,8 +35,44 @@ class HyperCar(Car):
     def get_info(self):
         return f"{super().get_info()} and a top speed of {self.top_speed} mph"
 
-#output
-car1 = Car("Toyota", "Corolla", 2020, 4)
-tesla = ElectricCar("Tesla", "Model 3", 2024, 4, 75)
-print (Car.get_info(car1))
-print(ElectricCar.get_info(tesla))
+#class: printing info
+class CarInfoPrinter:
+    @staticmethod #clear screen
+    def clear_screen():
+        print("\033[H\033[J", end="")
+
+    @staticmethod #printing info
+    def print_cars_info(cars):
+        for car in cars:
+            print(f"{car.year} {car.make} {car.model} with {car.num_doors} doors")
+
+    @staticmethod #menu
+    def display_menu():
+        CarInfoPrinter.clear_screen() #clearing the screen first
+        while True:
+            print("\nMenu:")
+            print("1. Print all cars")
+            print("2. Exit")
+            choice = input("Enter your choice: ")
+            if choice == "1":
+                CarInfoPrinter.print_cars_info(cars)
+            elif choice == "2":
+                print ("Exiting the porgram.")
+                break
+            else:
+                print("Invalid choice. Please try again.")
+
+#data
+cars = [
+    Car("Chevrolet", "Convertible", 1938, 2),
+    Car("Volkswagen", "Beetle", 1967, 2),
+    Car("Porsche", "356B", 1960, 2),
+    Car("Alfa Romeo", "2600 Sprint", 1965, 2),
+    Car("Ford", "Mustang", 1966, 2),
+    Car("Mercedes-Benz", "220SE", 1964, 4),
+    Car("Ferrari", "365 GT 2+2", 1967, 2),
+    Car("Ford", "Falcon", 1962, 4)
+]
+
+#display the menu
+CarInfoPrinter.display_menu()

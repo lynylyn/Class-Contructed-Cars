@@ -57,7 +57,7 @@ class CarInfoPrinter:
             if choice == "1":
                 CarInfoPrinter.print_cars_info(cars)
             elif choice == "2":
-                print ("Exiting the porgram.")
+                print ("Exiting the program.")
                 break
             else:
                 print("Invalid choice. Please try again.")
